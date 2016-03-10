@@ -1,0 +1,51 @@
+             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+              SPIRITUAL MAPPING PROJECT, LANGUAGE PROPOSAL
+
+
+                                Matt Lin
+             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+1 Purpose
+═════════
+
+  I am making this proposal as a rough draft of an easy to follow
+  language that can be used to make a powerpoint.
+
+
+2 Language options
+══════════════════
+
+2.1 Structure
+─────────────
+
+  The overall structure of the language is to have one easy to follow
+  command on each line, with as much inference as possible – as long as
+  the general structure is correct and the data is in the right place,
+  that's really all that we need.
+
+
+2.2 General example
+───────────────────
+
+  ┌────
+  │ #title Cornell Survey, 2016
+  │ #author Matthew Lin
+  │ #slide Prayer vs reading the bible
+  │ #chart <make this stuff up later>
+  │ #textarea
+  │ #slide More information goes here
+  │ #textarea Conclusions go here
+  └────
+  This should give us three slides: a title slide, a slide with a chart
+  on the left and a textbox on the right, and another slide, with a full
+  sized text box.
+
+
+3 Where to generate the charts?
+═══════════════════════════════
+
+  I am using a node.js library called officegen, and it contains a way
+  of making charts natively in powerpoint. I will play around with it
+  some more so that we don't necessarily have to have charts as images,
+  which would save some work for us.

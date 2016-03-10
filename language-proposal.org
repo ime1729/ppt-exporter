@@ -1,0 +1,30 @@
+#+TITLE: Spiritual Mapping Project, Language Proposal
+#+AUTHOR: Matt Lin
+#+OPTIONS: toc:nil
+* Purpose
+  I am making this proposal as a rough draft of an easy to follow language that
+  can be used to make a powerpoint.
+* Language options
+** Structure
+   The overall structure of the language is to have one easy to follow command
+   on each line, with as much inference as possible -- as long as the general
+   structure is correct and the data is in the right place, that's really all
+   that we need.
+** General example
+   #+BEGIN_EXAMPLE
+   #title Cornell Survey, 2016
+   #author Matthew Lin
+   #slide Prayer vs reading the bible
+   #chart <make this stuff up later>
+   #textarea
+   #slide More information goes here
+   #textarea Conclusions go here
+   #+END_EXAMPLE
+   This should give us three slides: a title slide, a slide with a chart on the
+   left and a textbox on the right, and another slide, with a full sized text
+   box.
+* Where to generate the charts?
+  I am using a node.js library called officegen, and it contains a way of
+  making charts natively in powerpoint. I will play around with it some more
+  so that we don't necessarily have to have charts as images, which would save
+  some work for us.

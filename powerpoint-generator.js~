@@ -1,0 +1,8 @@
+var og=require('officegen');
+var fs=require('fs');
+var ppt=officegen('pptx');
+var slide=ppt.makeNewSlide();
+slide.addText("Title goes here",{y:20,x:0,cx:'100%',cy:60,font_size:48,align:'center'});
+var out=fs.createWriteStream('out.pptx');
+ppt.generate(out);
+//console.log('This works!');
