@@ -30,17 +30,23 @@ function genast(lines){
         case "#chart":console.log("TODO");break;
         case "#slide":ret.push(curSlide);curSlide={title:tail};break;
         case "#text":updateBody(head,tail);break;
-        case "#chart":updateBody(head,body);break;
+        case "#chart":updateBody(head,tail);break;
         case "#":updateBody(null,tail);break;
         case "":break;
         default:
-            throw new Error("Unknown command:"+head);}
-        /*console.log("Line:"+head+"||"+tail);
-        console.log(ret);
-        console.log(curSlide);*/
-    });
+            throw new Error("Unknown command:"+head);}});
     ret.push(curSlide);
-    console.log(ret);
-    return ret;
-}
+    ret.forEach(function(slide){if(slide.content!=undefined){
+        var jcon=[];//JSON content parsed from commands
+        slide.content.forEach(function(e){
+            if(e.parse=="#text"){jcon.push({text:e.command});}
+            else if(e.parse=="#chart"){jcon.push(function(p){
+                var s=p.split(" ");
+                //only works if there is one dataset (which is satisfactory
+                // for now)
+                return {type:s.shift(),set:s.shift(),
+                        cat:s.shift().slice(1,-1).split(","),
+                        label:s.join(" ")};}(e.command));}
+            else{throw new Error("Unknown element");}});}});
+    return ret;}
 module.exports.genast=genast;

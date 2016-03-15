@@ -23,6 +23,54 @@
    This should give us three slides: a title slide, a slide with a chart on the
    left and a textbox on the right, and another slide, with a full sized text
    box.
+* Commands
+** #title
+   This is used to initialize the title slide of the presentation. Usage
+   anywhere else in the program will result in undefined behavior. Omission of
+   this will result in undefined behavior.
+** #author
+   This is used to put your name in the subtitle of the presentation. Usage
+   anywhere else in the program will result in undefined behavior.
+** #slide
+   This is used to generate a new slide, and what comes afterwards is the title
+   of the slide, placed at the top of the screen. As of now, each slide can have
+   one, two, four, or six elements on it. Any other number of elements on a
+   slide will result in undefined behavior.
+** #text
+   Anything that comes after this command is put into a PPT textbox. If you wish
+   to have two columns for your textbox, use two #text commands to put them side
+   by side.
+** #chart
+   This is a command to use to generate a chart.
+** #
+   If you wish to split your text or chart command along two lines, you can
+   start the next line with a '#' and a space, and then continue on with your
+   command. This may come useful if you want to have a long chart.
+** Comments
+   Comments are started with an empty space.
+* Chart commands
+** Pie charts
+   #+BEGIN_EXAMPLE
+   #chart pieslice: majors;[all,fellowship,aaIV,everyWeeker]
+   # Representation in majors
+   #+END_EXAMPLE
+   Pie charts should be used for proportion or representation, given that each
+   item has the same weight. Additionally, there should be relatively few number
+   of categories, unless if the pie chart is used to make a point of
+   disproportionate representation
+
+   Pie charts can come in several varieties. The types that are included are the
+   slicing type, where the data set is progressively trimmed down, and the
+   remnants are assembled into a pie chart, and the assembled pie chart, where
+   the data is joined together
+*** Sliced pie chart
+    #+BEGIN_EXAMPLE
+    #chart pieslice: data_set [categories,in,order,of,filtering] Name of chart
+    #+END_EXAMPLE
+*** TODO Joined pie chart
+    #+BEGIN_EXAMPLE
+    #chart piesimple: data_set [categories,go,here] Name of chart
+    #+END_EXAMPLE
 * Where to generate the charts?
   I am using a node.js library called officegen, and it contains a way of
   making charts natively in powerpoint. I will play around with it some more
